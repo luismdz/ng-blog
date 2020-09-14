@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button
+    class="animate__animated animate__fadeIn animate__faster"
+    (click)="
+    onNavOpen()">
+    <mat-icon *ngIf="!isNavOpen"
+      class="animate__animated animate__fadeIn animate__faster">menu</mat-icon>
+    <mat-icon *ngIf="isNavOpen">close</mat-icon>
+  </button>
+
+  <span>
+    <a routerLink="/">
+      Ng Blog
+    </a>
+  </span>
+  <!-- <span class="spacer"></span> -->
+
+</mat-toolbar>

@@ -1,0 +1,26 @@
+.card {
+  // width: 100%;
+  padding: 1.5rem;
+
+  .avatar-img {
+    background-image: url('https://static.thenounproject.com/png/363639-200.png');
+    background-size: cover;
+  }
+
+  mat-card-content {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  mat-card-actions {
+    span {
+      font-size: 14px;
+      font-weight: lighter;
+    }
+  }
+
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

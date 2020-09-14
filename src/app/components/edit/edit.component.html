@@ -1,0 +1,75 @@
+<mat-card>
+  <div class="edit-container animate__animated animate__fadeInRight animate__faster">
+
+    <div class="flex-box">
+      <h1>{{ editMode ? 'Editing Post' : 'New Post' }}</h1>
+      <button mat-fab
+        color="primary"
+        routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+
+
+    <form [formGroup]="editForm"
+      (ngSubmit)="onSave()">
+      <mat-form-field appearance="outline">
+        <mat-label>Author</mat-label>
+        <input matInput
+          placeholder="Ex. John Doe"
+          formControlName="author"
+          [errorStateMatcher]="matcher">
+        <mat-error *ngIf="editForm.get('author').invalid &&
+        editForm.get('author').touched &&
+        !editForm.get('author').errors?.minlength">
+          Author is required
+        </mat-error>
+        <mat-error *ngIf="editForm.get('author').errors?.minlength">
+          Author must be at least 3 characters long.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput
+          placeholder="Ex. Another day goes on..."
+          formControlName="title"
+          [errorStateMatcher]="matcher">
+        <mat-error *ngIf="editForm.get('title').invalid &&
+                      editForm.get('title').touched &&
+                      !editForm.get('title').errors?.minlength">
+          Title is required
+        </mat-error>
+        <mat-error *ngIf="editForm.get('title').errors?.minlength">
+          Title must be at least 5 characters long.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Content</mat-label>
+        <textarea matInput
+          placeholder="..."
+          formControlName="content"
+          rows="10"
+          [errorStateMatcher]="matcher"
+          cdkTextareaAutosize></textarea>
+        <mat-error *ngIf="editForm.get('content').invalid &&
+                      editForm.get('content').touched &&
+                      !editForm.get('content').errors?.minlength">
+          Content is required
+        </mat-error>
+        <mat-error *ngIf="editForm.get('content').errors?.minlength">
+          Content must be at least 5 characters long.
+        </mat-error>
+      </mat-form-field>
+
+
+      <button mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="(editMode ? editForm.pristine : !editForm.valid)">
+        {{ editMode ? 'Update' : 'Save' }}
+      </button>
+    </form>
+  </div>
+</mat-card>

@@ -1,0 +1,27 @@
+mat-sidenav-container {
+  height: 93.5vh;
+}
+
+mat-sidenav {
+  width: 50vw;
+
+  mat-list-item {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      margin-right: .5rem;
+    }
+
+    &:hover {
+      background-color: rgba($color: #000000, $alpha: 0.2);
+    }
+  }
+}
+
+@media(min-width:765px) {
+  mat-sidenav {
+    width: 30vw;
+  }
+
+}
